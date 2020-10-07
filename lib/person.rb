@@ -1,4 +1,4 @@
-# your code goes here
+require 'pry'
 class Person
     attr_reader :name, :bank_account, :happiness, :hygiene
     attr_writer :bank_account
@@ -19,6 +19,10 @@ class Person
           @happiness = happiness
         end  
     end
+
+    # def happiness 
+    #     @happiness
+    # end
 
     def hygiene=(hygiene)
         if hygiene > 10
@@ -52,11 +56,20 @@ class Person
     end
 
     def take_bath
-        @hygiene += 4
-        if @hygiene > 10
-            @hygiene = 10
-        end
-        return "♪ Rub-a-dub just relaxing in the tub ♫"
+        self.hygiene = @hygiene + 4 
+
+        return "♪ Rub-a-dub just relaxing in the tub ♫" 
+
+    end
+
+    def work_out
+        self.hygiene = @hygiene - 3
+        self.happiness += 2
+        return "♪ another one bites the dust ♫"
+    end
+
+    def call_friend(person)
+        self.happiness += 3
 
     end
 
